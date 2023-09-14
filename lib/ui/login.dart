@@ -13,8 +13,8 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Welcome to the Login Page',
-              style: TextStyle(fontSize: 24),
+              'Guide Me: Aplikasi Tour Guide',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             const Padding(
@@ -51,7 +51,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Belum punya akun?'),
+              child: const Text('Don\'t have an account yet? Sign Up'),
             ),
           ],
         ),
@@ -63,4 +63,3 @@ class LoginPage extends StatelessWidget {
 void main() {
   runApp(const MyApp());
 }
-
