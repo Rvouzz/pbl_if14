@@ -18,11 +18,11 @@ class LoginPage extends StatelessWidget {
         ),
         child: Center(
           child: Card(
-            elevation: 5.0, // Menambahkan efek shadow
+            elevation: 5.0, 
             margin: const EdgeInsets.all(20.0),
             color: Colors.white.withOpacity(0.5),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0), // Menambahkan radius
+              borderRadius: BorderRadius.circular(10.0), 
             ),
             child: SingleChildScrollView(
               child: Padding(
@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black, // Ubah warna tombol sesuai preferensi Anda
+                        backgroundColor: Colors.black, 
                       ),
                       child: const Text('Login', style: TextStyle(color: Colors.white)),
                     ),
@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
                       child: const Text(
                         "Don't have an account yet? Sign Up",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 23, 74, 116), // Ubah warna teks sesuai preferensi Anda
+                          color: Color.fromARGB(255, 23, 74, 116), 
                         ),
                       ),
                     ),

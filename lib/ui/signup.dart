@@ -82,7 +82,7 @@ class SignupPage extends StatelessWidget {
                       child: const Text(
                         'Already have an account? Login',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 23, 74, 116), // Ubah warna teks sesuai preferensi Anda
+                          color: Color.fromARGB(255, 23, 74, 116), 
                         ),
                       ),
                     ),
