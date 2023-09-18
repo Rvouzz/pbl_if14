@@ -3,7 +3,7 @@
    <application
         android:label="pbl_if14"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/splash"> <!-- Menggunakan ikon dari direktori 'mipmap' -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
