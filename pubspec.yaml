@@ -6,13 +6,17 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.2 <3.0.0"
+  sdk: '>=3.1.1 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.2
   cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.9.0
+  google_fonts: ^6.1.0
+  flutter_feather_icons: ^2.0.0+1
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -20,8 +24,34 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
+
+  
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+
+
+
 flutter:
   uses-material-design: true
+
+  assets:
+  - assets\images\bg1.png
+  - assets\images\megamall.png
+  - assets\images\jembatan1.jpeg
 
 flutter_native_splash:
   image: assets/splash.png

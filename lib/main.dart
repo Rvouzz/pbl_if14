@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/login.dart';
+import 'package:pbl_if14/Pages/home.dart';
 
 
 void main() {
@@ -7,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: false, 
-      
-      home: const LoginPage(), 
+      debugShowCheckedModeBanner: false,
+      home: const Home(),
     );
   }
 }
