@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pbl_if14/PAges/explore2.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({Key? key}) : super(key: key);
@@ -44,14 +45,11 @@ class _ExplorePageState extends State<ExplorePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 7, 0.49),
-                            width: 19,
-                            height: 18,
-                            child: Image(
-                              image: AssetImage("images/icons.png"),
-                              width: 19,
-                              height: 18,
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              FeatherIcons.compass,
+                              color: Color(0xff614bc3),
                             ),
                           ),
                           Text(
@@ -70,9 +68,8 @@ class _ExplorePageState extends State<ExplorePage> {
                       child: Text(
                         "Find a place you like that you want to go",
                         style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            height: 1.2125,
                             color: Color(0xff614bc3)),
                       ),
                     )

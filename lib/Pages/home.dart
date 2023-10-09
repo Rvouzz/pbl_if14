@@ -90,7 +90,7 @@ class Home extends StatelessWidget {
             "WELCOME\nEXPLORER",
             style: TextStyle(
                 fontFamily: "Inter",
-                fontSize: 20,
+                fontSize: 30,
                 fontWeight: FontWeight.w400,
                 color: Color(0xffffffff)),
           ),
@@ -101,7 +101,7 @@ class Home extends StatelessWidget {
             "Let's visit the destination at Batam Island",
             style: TextStyle(
                 fontFamily: "Inter",
-                fontSize: 11,
+                fontSize: 16,
                 fontWeight: FontWeight.w600,
                 color: Color(0xffffffff)),
           )
