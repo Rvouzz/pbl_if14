@@ -57,7 +57,7 @@ class _Explore2State extends State<Explore2> {
                               width: 19,
                               height: 18,
                               child: Image(
-                                image: AssetImage("images/icons.png"),
+                                image: AssetImage("assets/images/icons.png"),
                                 width: 19,
                                 height: 18,
                               ),
@@ -92,7 +92,7 @@ class _Explore2State extends State<Explore2> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                    image: AssetImage("images/vio-vio.jpg"),
+                    image: AssetImage("assets/images/vio-vio.jpg"),
                     fit: BoxFit.cover,
                   )),
                   child: Column(
@@ -122,7 +122,7 @@ class _Explore2State extends State<Explore2> {
                               width: 10,
                               height: 12.5,
                               child: Image(
-                                image: AssetImage("images/location.png"),
+                                image: AssetImage("assets/images/location.png"),
                                 width: 10,
                                 height: 12.5,
                               ),
@@ -161,7 +161,7 @@ class _Explore2State extends State<Explore2> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                    image: AssetImage("images/vio-vio.jpg"),
+                    image: AssetImage("assets/images/vio-vio.jpg"),
                     fit: BoxFit.cover,
                   )),
                   child: Column(
@@ -191,7 +191,7 @@ class _Explore2State extends State<Explore2> {
                               width: 10,
                               height: 12.5,
                               child: Image(
-                                image: AssetImage("images/location.png"),
+                                image: AssetImage("assets/images/location.png"),
                                 width: 10,
                                 height: 12.5,
                               ),
