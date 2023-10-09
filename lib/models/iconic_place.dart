@@ -6,7 +6,7 @@ class IconicPlaceModel {
   IconicPlaceModel({
     required this.name,
     required this.image,
-    this.rating = 0.0,
+    this.rating = 4.5,
   });
 }
 

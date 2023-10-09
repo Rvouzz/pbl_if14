@@ -6,13 +6,6 @@ import 'package:pbl_if14/models/iconic_place.dart';
 import 'package:pbl_if14/models/place_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-var menus = [
-  FeatherIcons.home,
-  FeatherIcons.compass,
-  FeatherIcons.edit,
-];
-
-var selectedMenu = 0;
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -24,8 +17,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF614BC3),
-        title: 
-        const Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("GUIDE.ME",
@@ -36,17 +28,23 @@ class Home extends StatelessWidget {
                 )),
           ],
         ),
-        actions: [IconButton(onPressed: () {}, icon:const  Icon(FeatherIcons.logIn,color: Colors.white,))],
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FeatherIcons.logIn,
+                color: Colors.white,
+              ))
+        ],
       ),
-      bottomNavigationBar: _bottomNavigationBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Container kedua
-              _cardbesar(),
+              // Container pertama
+              cardBesar(),
 
-              // Container ketiga
+              // Container kedua
               Container(
                 color: const Color(0xFF614BC3),
                 height: 50,
@@ -55,10 +53,10 @@ class Home extends StatelessWidget {
                 // Hanya ada satu child di dalam Container, jadi tidak perlu menggunakan list.
                 child: _topplace(),
               ),
-              // Container keempat
+              // Container ketiga
               _topplaces(),
 
-              // Container kelima
+              // Container keempat
               Container(
                   color: const Color(0xFF614BC3),
                   height: 50,
@@ -67,7 +65,7 @@ class Home extends StatelessWidget {
                   // Hanya ada satu child di dalam Container, jadi tidak perlu menggunakan list.
                   child: _iconicplacetext()),
 
-              // Container keenam
+              // Container kelima
               _iconicplace()
             ],
           ),
@@ -76,76 +74,39 @@ class Home extends StatelessWidget {
     );
   }
 
-  BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
-        selectedItemColor: const Color(0xFF3D1FC4),
-        type: BottomNavigationBarType.fixed,
-        items: menus
-            .map((e) =>
-                BottomNavigationBarItem(icon: Icon(e), label: e.toString()))
-            .toList(),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        unselectedItemColor: const Color(0xFFA193DF),
-      );
-
-  
-
-  AspectRatio _cardbesar() {
-    return AspectRatio(
-      aspectRatio: 360 / 213,
-      child: Container(
-          // Warna container kedua
-          color: const Color.fromARGB(255, 255, 255, 255),
-
-          // Posisi container kedua
-          alignment: Alignment.bottomCenter,
-          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-
-          // Child container kedua
-          child: Stack(
-            children: [
-              Image.asset(
-                'assets/images/bg1.png',
-                height: double.maxFinite,
-                width: double.maxFinite,
-                fit: BoxFit.cover,
-              ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(25, 140, 232, 0),
-                        child: Text(
-                          "WELCOME\nEXPLORER",
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(25, 10, 0, 0),
-                        child: Text(
-                          "Let's visit the destination at Batam Island",
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          )),
+  Container cardBesar() {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(23, 213, 0, 60),
+      width: double.maxFinite,
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage('assets/images/bg1.png'),
+        fit: BoxFit.cover,
+      )),
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "WELCOME\nEXPLORER",
+            style: TextStyle(
+                fontFamily: "Inter",
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: Color(0xffffffff)),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Let's visit the destination at Batam Island",
+            style: TextStyle(
+                fontFamily: "Inter",
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+                color: Color(0xffffffff)),
+          )
+        ],
+      ),
     );
   }
 
@@ -206,7 +167,7 @@ Container place(PlaceModel placeModel) {
               width: 68,
             ),
             const SizedBox(
-              width: 5,
+              width: 1,
             ),
             Flexible(
               fit: FlexFit.tight,
@@ -239,7 +200,7 @@ Container place(PlaceModel placeModel) {
               ),
             ),
             const SizedBox(
-              width: 40,
+              width: 1,
             ),
             TextButton(
               onPressed: () {
@@ -322,7 +283,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
               width: 68,
             ),
             const SizedBox(
-              width: 5,
+              width: 1,
             ),
             Flexible(
               fit: FlexFit.tight,
@@ -355,7 +316,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
               ),
             ),
             const SizedBox(
-              width: 40,
+              width: 1,
             ),
             TextButton(
               onPressed: () {
