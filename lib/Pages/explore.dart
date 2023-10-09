@@ -81,7 +81,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage("images/beach.jpg"),
+                  image: AssetImage("assets/images/beach.jpg"),
                   fit: BoxFit.cover,
                 )),
                 child: Column(
@@ -125,7 +125,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage("images/shopping.jpg"),
+                  image: AssetImage("assets/images/shopping.jpg"),
                   fit: BoxFit.cover,
                 )),
                 child: Column(
@@ -164,7 +164,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("images/amusement_park.jpg"),
+                        image: AssetImage("assets/images/amusement_park.jpg"),
                         fit: BoxFit.cover)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +202,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("images/wtb.jpg"),
+                        image: AssetImage("assets/images/wtb.jpg"),
                         fit: BoxFit.cover)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
