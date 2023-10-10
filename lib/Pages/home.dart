@@ -5,7 +5,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:pbl_if14/models/iconic_place.dart';
 import 'package:pbl_if14/models/place_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
+import 'package:pbl_if14/ui/login.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
           children: [
             Text("GUIDE.ME",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
                 )),
@@ -30,10 +30,14 @@ class Home extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()));
+              },
               icon: const Icon(
                 FeatherIcons.logIn,
                 color: Colors.white,
+                size: 30,
               ))
         ],
       ),
@@ -91,7 +95,7 @@ class Home extends StatelessWidget {
             style: TextStyle(
                 fontFamily: "Inter",
                 fontSize: 30,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w800,
                 color: Color(0xffffffff)),
           ),
           SizedBox(
@@ -128,7 +132,7 @@ class Home extends StatelessWidget {
             style: GoogleFonts.inter(
               color: Colors.white,
               fontSize: 20,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ],
@@ -176,8 +180,8 @@ Container place(PlaceModel placeModel) {
                   Text(
                     placeModel.name,
                     style: GoogleFonts.inter(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
                         color: const Color(0xFF000000)),
                   ),
                   const SizedBox(
@@ -189,7 +193,7 @@ Container place(PlaceModel placeModel) {
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemSize: 20.0,
+                    itemSize: 21.0,
                     itemBuilder: (context, index) => const Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -292,8 +296,8 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                   Text(
                     iconicPlaceModel.name,
                     style: GoogleFonts.inter(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
                         color: const Color(0xFF000000)),
                   ),
                   const SizedBox(
@@ -305,7 +309,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemSize: 20.0,
+                    itemSize: 21.0,
                     itemBuilder: (context, index) => const Icon(
                       Icons.star,
                       color: Colors.amber,

@@ -61,6 +61,6 @@ var selectedMenu = 0;
         },
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        unselectedItemColor: const Color.fromARGB(255, 12, 12, 12),
+        unselectedItemColor: Color.fromARGB(255, 131, 122, 122),
       );
 }

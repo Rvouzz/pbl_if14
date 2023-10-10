@@ -23,7 +23,7 @@ class _Explore2State extends State<Explore2> {
               Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_back_rounded)),
-        title: Text("Find Destination"),
+        title: Text("Find Destination", style: TextStyle(fontSize: 22)),
         backgroundColor: Color.fromARGB(255, 109, 54, 236),
       ),
       body: SingleChildScrollView(
@@ -60,7 +60,7 @@ class _Explore2State extends State<Explore2> {
                             "Beach",
                             style: GoogleFonts.inter(
                                 color: Color(0xff614bc3),
-                                fontSize: 18,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2125),
                           )
@@ -72,7 +72,7 @@ class _Explore2State extends State<Explore2> {
                       child: Text(
                         "Find which beach you like that you want to go",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Color(0xff614bc3)),
                       ),
@@ -85,7 +85,7 @@ class _Explore2State extends State<Explore2> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage("images/vio-vio.jpg"),
+                  image: AssetImage("assets/images/vio-vio.jpg"),
                   fit: BoxFit.cover,
                 )),
                 child: Column(
@@ -115,7 +115,7 @@ class _Explore2State extends State<Explore2> {
                             width: 10,
                             height: 12.5,
                             child: Image(
-                              image: AssetImage("images/location.png"),
+                              image: AssetImage("assets/images/location.png"),
                               width: 10,
                               height: 12.5,
                             ),
@@ -154,7 +154,7 @@ class _Explore2State extends State<Explore2> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage("images/vio-vio.jpg"),
+                  image: AssetImage("assets/images/vio-vio.jpg"),
                   fit: BoxFit.cover,
                 )),
                 child: Column(
@@ -184,7 +184,7 @@ class _Explore2State extends State<Explore2> {
                             width: 10,
                             height: 12.5,
                             child: Image(
-                              image: AssetImage("images/location.png"),
+                              image: AssetImage("assets/images/location.png"),
                               width: 10,
                               height: 12.5,
                             ),

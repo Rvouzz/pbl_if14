@@ -19,7 +19,7 @@ class _ExplorePageState extends State<ExplorePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Find Destination"),
+        title: Text("Find Destination", style: TextStyle(fontSize: 22)),
         backgroundColor: Color.fromARGB(255, 109, 54, 236),
       ),
       body: SingleChildScrollView(
@@ -56,7 +56,7 @@ class _ExplorePageState extends State<ExplorePage> {
                             "Explore",
                             style: GoogleFonts.inter(
                                 color: Color(0xff614bc3),
-                                fontSize: 18,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2125),
                           )
@@ -68,7 +68,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       child: Text(
                         "Find a place you like that you want to go",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Color(0xff614bc3)),
                       ),
