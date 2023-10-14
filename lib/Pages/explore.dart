@@ -43,7 +43,6 @@ class _ExplorePageState extends State<ExplorePage> {
                       margin: EdgeInsets.fromLTRB(0, 0, 107, 6),
                       width: double.infinity,
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           IconButton(
                             onPressed: () {},

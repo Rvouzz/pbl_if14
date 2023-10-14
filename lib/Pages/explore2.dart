@@ -43,29 +43,24 @@ class _Explore2State extends State<Explore2> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 107, 6),
-                      width: double.infinity,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              FeatherIcons.compass,
-                              color: Color(0xff614bc3),
-                            ),
+                    Row(
+                      children: <Widget>[
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            FeatherIcons.compass,
+                            color: Color(0xff614bc3),
                           ),
-                          Text(
-                            "Beach",
-                            style: GoogleFonts.inter(
-                                color: Color(0xff614bc3),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                height: 1.2125),
-                          )
-                        ],
-                      ),
+                        ),
+                        Text(
+                          "Beach",
+                          style: GoogleFonts.inter(
+                              color: Color(0xff614bc3),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              height: 1.2125),
+                        )
+                      ],
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(2, 0, 0, 0),
@@ -104,35 +99,25 @@ class _Explore2State extends State<Explore2> {
                             color: Color(0xffffffff)),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0.5, 0, 282, 5.25),
-                      width: double.infinity,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 4.5, 0),
-                            width: 10,
-                            height: 12.5,
-                            child: Image(
-                              image: AssetImage("assets/images/location.png"),
-                              width: 10,
-                              height: 12.5,
-                            ),
+                    Row(
+                      children: <Widget>[
+                        IconButton(
+                          iconSize: 15,
+                          onPressed: () {},
+                          icon: const Icon(
+                            FeatherIcons.mapPin,
+                            color: Colors.white,
                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 1),
-                            child: Text(
-                              "20 km",
-                              style: GoogleFonts.inter(
-                                  color: Color(0xffffffff),
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.2125),
-                            ),
-                          )
-                        ],
-                      ),
+                        ),
+                        SizedBox(width: 0),
+                        Text(
+                          "20 km",
+                          style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ],
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(1, 5, 0, 0),
@@ -149,75 +134,6 @@ class _Explore2State extends State<Explore2> {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(19, 48, 19, 13),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage("assets/images/vio-vio.jpg"),
-                  fit: BoxFit.cover,
-                )),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 2.25),
-                      constraints: BoxConstraints(maxWidth: 97),
-                      child: Text(
-                        'Vio vio Beach,\nGalang Island',
-                        style: TextStyle(
-                            fontFamily: "Inter",
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                            height: 1.2125,
-                            color: Color(0xffffffff)),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0.5, 0, 282, 5.25),
-                      width: double.infinity,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 4.5, 0),
-                            width: 10,
-                            height: 12.5,
-                            child: Image(
-                              image: AssetImage("assets/images/location.png"),
-                              width: 10,
-                              height: 12.5,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 1),
-                            child: Text(
-                              "20 km",
-                              style: GoogleFonts.inter(
-                                  color: Color(0xffffffff),
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.2125),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(1, 5, 0, 0),
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xff33bbc5),
-                              minimumSize: Size(47, 18),
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)))),
-                          onPressed: () {},
-                          child: Text("View")),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
