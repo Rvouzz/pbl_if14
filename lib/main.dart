@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pbl_if14/Pages/explore.dart';
 import 'package:pbl_if14/Pages/home.dart';
-import 'package:pbl_if14/ui/landingpage.dart';
+// import 'package:pbl_if14/ui/landingpage.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 // import 'ui/login.dart';
 
@@ -13,7 +13,7 @@ void main() {
 var pages = [
   const Home(),
   const ExplorePage(),
-  const LandingPage()
+  // const LandingPage()
 ];
 
 class MyApp extends StatefulWidget {
