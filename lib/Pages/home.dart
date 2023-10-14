@@ -177,12 +177,15 @@ Container place(PlaceModel placeModel) {
               fit: FlexFit.tight,
               child: Column(
                 children: [
-                  Text(
-                    placeModel.name,
-                    style: GoogleFonts.inter(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFF000000)),
+                  Padding(padding:const EdgeInsets.symmetric(horizontal: 1),
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      placeModel.name,
+                      style: GoogleFonts.inter(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF000000)),
+                    ),
                   ),
                   const SizedBox(
                     height: 5,
@@ -217,6 +220,7 @@ Container place(PlaceModel placeModel) {
                   ),
                   fixedSize: const Size(72, 23)),
               child: Text(
+                textAlign: TextAlign.center,
                 "View",
                 style: GoogleFonts.inter(
                     fontSize: 10,
@@ -293,12 +297,15 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
               fit: FlexFit.tight,
               child: Column(
                 children: [
-                  Text(
-                    iconicPlaceModel.name,
-                    style: GoogleFonts.inter(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFF000000)),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 1),
+                    child: Text(textAlign: TextAlign.center,
+                      iconicPlaceModel.name,
+                      style: GoogleFonts.inter(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF000000)),
+                    ),
                   ),
                   const SizedBox(
                     height: 5,
