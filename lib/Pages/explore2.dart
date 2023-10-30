@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:pbl_if14/Pages/detail.dart';
 
 class Explore2 extends StatefulWidget {
   const Explore2({super.key});
@@ -128,7 +129,10 @@ class _Explore2State extends State<Explore2> {
                               shape: const RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)))),
-                          onPressed: () {},
+                          onPressed: () {Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Detail()));},
                           child: Text("View")),
                     )
                   ],

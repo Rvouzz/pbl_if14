@@ -11,8 +11,8 @@ class PlaceModel {
 }
 
 var places = [
-  PlaceModel(name: "Mega Mall Batam Center", image: "megamall.png"),
-  PlaceModel(name: "Mega Mall Batam Center", image: "megamall.png"),
-  PlaceModel(name: "Mega Mall Batam Center", image: "megamall.png"),
+  PlaceModel(name: "Mega Mall Batam Center1", image: "megamall.png"),
+  PlaceModel(name: "Mega Mall Batam Center2", image: "megamall.png"),
+  PlaceModel(name: "Mega Mall Batam Center3", image: "megamall.png"),
 
 ];

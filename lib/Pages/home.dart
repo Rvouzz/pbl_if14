@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+// import 'package:pbl_if14/Pages/detail.dart';
 import 'package:pbl_if14/models/iconic_place.dart';
 import 'package:pbl_if14/models/place_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -177,7 +178,8 @@ Container place(PlaceModel placeModel) {
               fit: FlexFit.tight,
               child: Column(
                 children: [
-                  Padding(padding:const EdgeInsets.symmetric(horizontal: 1),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 1),
                     child: Text(
                       textAlign: TextAlign.center,
                       placeModel.name,
@@ -211,7 +213,6 @@ Container place(PlaceModel placeModel) {
             ),
             TextButton(
               onPressed: () {
-                // Tambahkan kode aksi button di sini
               },
               style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFF33BBC5),
@@ -299,7 +300,8 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 1),
-                    child: Text(textAlign: TextAlign.center,
+                    child: Text(
+                      textAlign: TextAlign.center,
                       iconicPlaceModel.name,
                       style: GoogleFonts.inter(
                           fontSize: 15,
@@ -340,6 +342,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                   ),
                   fixedSize: const Size(72, 23)),
               child: Text(
+                textAlign: TextAlign.center,
                 "View",
                 style: GoogleFonts.inter(
                     fontSize: 10,

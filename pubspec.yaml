@@ -37,6 +37,7 @@ flutter:
     - assets\images\wtb.jpg
     - assets\images\vio-vio.jpg
     - assets\images\location.png
+    - assets\images\Detail.jpg
 
   fonts:
     - family: Montserrat
