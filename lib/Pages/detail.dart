@@ -17,7 +17,7 @@ class Detail extends StatelessWidget {
           children: [
             Text("Detail",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 22,
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
                 ))
