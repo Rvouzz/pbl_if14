@@ -48,9 +48,9 @@ class Detail extends StatelessWidget {
 
 Container _judul() {
   return Container(
-    padding: const EdgeInsets.fromLTRB(20, 10, 30, 10),
+    padding: const EdgeInsets.fromLTRB(20, 10, 30, 0),
     color: const Color(0xFF614BC3),
-    height: 160,
+    height: 120,
     child: Row(
       children: [
         Flexible(
