@@ -12,7 +12,7 @@ class Detail extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF614BC3),
+        backgroundColor: const Color.fromARGB(255, 100, 171, 69),
         title: const Row(
           children: [
             Text("Detail",
@@ -49,8 +49,8 @@ class Detail extends StatelessWidget {
 Container _judul() {
   return Container(
     padding: const EdgeInsets.fromLTRB(20, 10, 30, 0),
-    color: const Color(0xFF614BC3),
-    height: 120,
+    color: const Color.fromARGB(255, 100, 171, 69),
+    height: 150,
     child: Row(
       children: [
         Flexible(
@@ -139,12 +139,12 @@ Container _judul() {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),
                         side: const BorderSide(
-                          color: Color(0xFF33BBC5),
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       )),
                   icon: const Icon(
                     FeatherIcons.edit2,
-                    color: Color(0xFF33BBC5),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     size: 12,
                   ),
                   label: const Text(
@@ -153,7 +153,7 @@ Container _judul() {
                         fontFamily: "Inter",
                         fontSize: 8,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xFF33BBC5)),
+                        color: Color.fromARGB(255, 255, 255, 255)),
                   )),
             )
           ],
@@ -176,7 +176,7 @@ Container _deskripsi() {
           style: GoogleFonts.inter(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF614BC3)),
+              color: const Color.fromARGB(255, 100, 171, 69)),
         ),
         const SizedBox(
           height: 10,
@@ -187,7 +187,7 @@ Container _deskripsi() {
           style: GoogleFonts.inter(
               fontSize: 10,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF614BC3)),
+              color: const Color.fromARGB(255, 0, 0, 0)),
         )
       ],
     )),

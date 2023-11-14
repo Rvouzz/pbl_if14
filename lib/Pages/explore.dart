@@ -20,7 +20,7 @@ class _ExplorePageState extends State<ExplorePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Find Destination", style: TextStyle(fontSize: 22)),
-        backgroundColor: Color.fromARGB(255, 109, 54, 236),
+        backgroundColor: const Color.fromARGB(255, 100, 171, 69),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -48,13 +48,13 @@ class _ExplorePageState extends State<ExplorePage> {
                             onPressed: () {},
                             icon: const Icon(
                               FeatherIcons.compass,
-                              color: Color(0xff614bc3),
+                              color: Color.fromARGB(255, 100, 171, 69),
                             ),
                           ),
                           Text(
                             "Explore",
                             style: GoogleFonts.inter(
-                                color: Color(0xff614bc3),
+                                color: const Color.fromARGB(255, 100, 171, 69),
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2125),
@@ -69,7 +69,7 @@ class _ExplorePageState extends State<ExplorePage> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
-                            color: Color(0xff614bc3)),
+                            color: const Color.fromARGB(255, 100, 171, 69)),
                       ),
                     )
                   ],
@@ -103,7 +103,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       margin: EdgeInsets.fromLTRB(1, 5, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xff33bbc5),
+                              backgroundColor: const Color.fromARGB(255, 100, 171, 69),
                               minimumSize: Size(47, 18),
                               shape: const RoundedRectangleBorder(
                                   borderRadius:
@@ -147,7 +147,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       margin: EdgeInsets.fromLTRB(1, 5, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xff33bbc5),
+                              backgroundColor: const Color.fromARGB(255, 100, 171, 69),
                               minimumSize: Size(47, 18),
                               shape: const RoundedRectangleBorder(
                                   borderRadius:
@@ -185,7 +185,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       margin: EdgeInsets.fromLTRB(1, 5, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xff33bbc5),
+                              backgroundColor: const Color.fromARGB(255, 100, 171, 69),
                               minimumSize: Size(47, 18),
                               shape: const RoundedRectangleBorder(
                                   borderRadius:
@@ -223,7 +223,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       margin: EdgeInsets.fromLTRB(1, 5, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xff33bbc5),
+                              backgroundColor: const Color.fromARGB(255, 100, 171, 69),
                               minimumSize: Size(47, 18),
                               shape: const RoundedRectangleBorder(
                                   borderRadius:

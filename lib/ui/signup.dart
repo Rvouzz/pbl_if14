@@ -17,7 +17,7 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF614BC3),
+      backgroundColor: const Color.fromARGB(255, 100, 171, 69),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -27,7 +27,7 @@ class _SignupPageState extends State<SignupPage> {
               children: <Widget>[
                 const SizedBox(height: 50),
                 Image.asset(
-                  'assets/splash.png',
+                  'assets/splash1.png',
                   height: 100,
                 ),
                 const SizedBox(height: 20),
@@ -37,7 +37,7 @@ class _SignupPageState extends State<SignupPage> {
                     fontFamily: 'Montserrat',
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -105,7 +105,8 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _isReEnterPasswordVisible = !_isReEnterPasswordVisible;
+                          _isReEnterPasswordVisible =
+                              !_isReEnterPasswordVisible;
                         });
                       },
                     ),
@@ -117,7 +118,7 @@ class _SignupPageState extends State<SignupPage> {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 10),
-                    backgroundColor: const Color(0xFF33BBC5),
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -144,14 +145,14 @@ class _SignupPageState extends State<SignupPage> {
                         TextSpan(
                           text: "Already have an account? ",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: Color.fromARGB(255, 255, 255, 255),
                             fontFamily: 'Montserrat',
                           ),
                         ),
                         TextSpan(
                           text: "Login",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: Color.fromARGB(255, 255, 255, 255),
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Montserrat',
                           ),

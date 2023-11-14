@@ -5,7 +5,6 @@ import 'package:pbl_if14/Pages/home.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 // import 'ui/login.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -41,15 +40,15 @@ class _MyAppState extends State<MyApp> {
   }
 
   var menus = [
-  FeatherIcons.home,
-  FeatherIcons.compass,
-  FeatherIcons.edit,
-];
+    FeatherIcons.home,
+    FeatherIcons.compass,
+    FeatherIcons.edit,
+  ];
 
-var selectedMenu = 0;
+  var selectedMenu = 0;
 
   BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
-        selectedItemColor: const Color(0xFF3D1FC4),
+        selectedItemColor: const Color.fromARGB(255, 100, 171, 69),
         type: BottomNavigationBarType.fixed,
         items: menus
             .map((e) =>
@@ -63,6 +62,6 @@ var selectedMenu = 0;
         },
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        unselectedItemColor: const Color.fromARGB(255, 12, 12, 12),
+        unselectedItemColor: const Color.fromARGB(255, 115, 110, 110),
       );
 }

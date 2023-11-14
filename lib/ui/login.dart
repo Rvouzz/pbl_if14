@@ -12,13 +12,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool _isPasswordVisible =
-      false; 
+  bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF614BC3),
+      backgroundColor: const Color.fromARGB(255, 100, 171, 69),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -27,10 +26,9 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const SizedBox(height: 50),
-                
                 Image.asset(
-                  'assets/splash.png',
-                  height: 100, 
+                  'assets/splash1.png',
+                  height: 100,
                 ),
                 const SizedBox(height: 20),
                 const Text(
@@ -39,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Montserrat',
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -56,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
-                  obscureText: !_isPasswordVisible, 
+                  obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     border: const OutlineInputBorder(
@@ -84,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 10),
-                    backgroundColor: const Color(0xFF33BBC5),
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -93,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0),
                         fontSize: 18,
-                        fontFamily: 'Montserrat', 
+                        fontFamily: 'Montserrat',
                       )),
                 ),
                 const SizedBox(height: 10),
@@ -111,16 +109,16 @@ class _LoginPageState extends State<LoginPage> {
                         TextSpan(
                           text: "Not Registered? ",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontFamily: 'Montserrat', 
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontFamily: 'Montserrat',
                           ),
                         ),
                         TextSpan(
                           text: "Sign Up Now",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: Color.fromARGB(255, 255, 255, 255),
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Montserrat', 
+                            fontFamily: 'Montserrat',
                           ),
                         ),
                       ],

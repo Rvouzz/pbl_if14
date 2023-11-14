@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF614BC3),
+        backgroundColor: const Color.fromARGB(255, 100, 171, 69),
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
 
               // Container kedua
               Container(
-                color: const Color(0xFF614BC3),
+                color: const Color.fromARGB(255, 100, 171, 69),
                 height: 50,
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
 
@@ -63,7 +63,7 @@ class Home extends StatelessWidget {
 
               // Container keempat
               Container(
-                  color: const Color(0xFF614BC3),
+                  color: const Color.fromARGB(255, 100, 171, 69),
                   height: 50,
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
 
@@ -133,7 +133,7 @@ class Home extends StatelessWidget {
             style: GoogleFonts.inter(
               color: Colors.white,
               fontSize: 20,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
@@ -212,10 +212,9 @@ Container place(PlaceModel placeModel) {
               width: 1,
             ),
             TextButton(
-              onPressed: () {
-              },
+              onPressed: () {},
               style: TextButton.styleFrom(
-                  backgroundColor: const Color(0xFF33BBC5),
+                  backgroundColor: const Color.fromARGB(255, 100, 171, 69),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -336,7 +335,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                 // Tambahkan kode aksi button di sini
               },
               style: TextButton.styleFrom(
-                  backgroundColor: const Color(0xFF33BBC5),
+                  backgroundColor: const Color.fromARGB(255, 100, 171, 69),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
