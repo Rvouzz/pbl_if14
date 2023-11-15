@@ -16,7 +16,7 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   double rating = 4.5;
-  String koneksi = conn.ip_read;
+  String koneksi = conn.ip_read_place;
   final formKey = GlobalKey<FormState>();
   TextEditingController id_destination = TextEditingController();
   TextEditingController destination_name = TextEditingController();

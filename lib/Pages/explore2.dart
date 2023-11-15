@@ -16,7 +16,7 @@ class Explore2 extends StatefulWidget {
 class _Explore2State extends State<Explore2> {
   List _listdata = [];
   bool _isloading = true;
-  String koneksi = conn.ip_read;
+  String koneksi = conn.ip_read_place;
   Future _getdata() async {
     try {
       final response = await http.get(Uri.parse(koneksi));
