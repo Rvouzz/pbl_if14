@@ -17,21 +17,21 @@ class _Explore2State extends State<Explore2> {
   List _listdata = [];
   bool _isloading = true;
   String koneksi = conn.ip_read;
-    Future _getdata() async {
-      try {
-        final response = await http.get(Uri.parse(koneksi));
-        if (response.statusCode == 200) {
-          print(response.body);
-          final data = jsonDecode(response.body);
-          setState(() {
-            _listdata = data;
-            _isloading = false;
-          });
-        }
-      } catch (e) {
-        print(e);
+  Future _getdata() async {
+    try {
+      final response = await http.get(Uri.parse(koneksi));
+      if (response.statusCode == 200) {
+        print(response.body);
+        final data = jsonDecode(response.body);
+        setState(() {
+          _listdata = data;
+          _isloading = false;
+        });
       }
+    } catch (e) {
+      print(e);
     }
+  }
 
   @override
   void initState() {
@@ -109,10 +109,37 @@ class _Explore2State extends State<Explore2> {
                                                   Radius.circular(10)))),
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const Detail()));
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Detail(
+                                                    ListData: {
+                                                      "id_destination":
+                                                          _listdata[index][
+                                                              'id_destination'],
+                                                      "destination_name":
+                                                          _listdata[index][
+                                                              'destination_name'],
+                                                      "destination_description":
+                                                          _listdata[index][
+                                                              'destination_description'],
+                                                      "destination_operational_hour":
+                                                          _listdata[index][
+                                                              'destination_operational_hour'],
+                                                      "destination_image_1":
+                                                          _listdata[index][
+                                                              'destination_image_1'],
+                                                      "destination_image_2":
+                                                          _listdata[index][
+                                                              'destination_image_2'],
+                                                      "destination_image_3":
+                                                          _listdata[index][
+                                                              'destination_image_3'],
+                                                      "category_name":
+                                                          _listdata[index]
+                                                              ['category_name'],
+                                                    },
+                                                  )),
+                                        );
                                       },
                                       child: const Text("View")),
                                 )
