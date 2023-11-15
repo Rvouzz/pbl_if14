@@ -17,21 +17,21 @@ class _Explore2State extends State<Explore2> {
   List _listdata = [];
   bool _isloading = true;
   String koneksi = conn.ip_read;
-  Future _getdata() async {
-    try {
-      final response = await http.get(Uri.parse(koneksi));
-      if (response.statusCode == 200) {
-        print(response.body);
-        final data = jsonDecode(response.body);
-        setState(() {
-          _listdata = data;
-          _isloading = false;
-        });
+    Future _getdata() async {
+      try {
+        final response = await http.get(Uri.parse(koneksi));
+        if (response.statusCode == 200) {
+          print(response.body);
+          final data = jsonDecode(response.body);
+          setState(() {
+            _listdata = data;
+            _isloading = false;
+          });
+        }
+      } catch (e) {
+        print(e);
       }
-    } catch (e) {
-      print(e);
     }
-  }
 
   @override
   void initState() {
