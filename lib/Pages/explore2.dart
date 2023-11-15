@@ -125,6 +125,9 @@ class _Explore2State extends State<Explore2> {
                                                       "destination_operational_hour":
                                                           _listdata[index][
                                                               'destination_operational_hour'],
+                                                      "destination_address":
+                                                          _listdata[index][
+                                                              'destination_address'],
                                                       "destination_image_1":
                                                           _listdata[index][
                                                               'destination_image_1'],

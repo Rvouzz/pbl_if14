@@ -22,6 +22,7 @@ class _DetailState extends State<Detail> {
   TextEditingController destination_name = TextEditingController();
   TextEditingController destination_description = TextEditingController();
   TextEditingController destination_operational_hour = TextEditingController();
+  TextEditingController destination_address = TextEditingController();
   TextEditingController destination_image_1 = TextEditingController();
   TextEditingController destination_image_2 = TextEditingController();
   TextEditingController destination_image_3 = TextEditingController();
@@ -34,6 +35,7 @@ class _DetailState extends State<Detail> {
       "destination_name": destination_name.text,
       "destination_description": destination_description.text,
       "destination_operational_hour": destination_operational_hour.text,
+      "destination_address": destination_address.text,
       "destination_image_1": destination_image_1.text,
       "destination_image_2": destination_image_2.text,
       "destination_image_3": destination_image_3.text,
@@ -53,6 +55,7 @@ class _DetailState extends State<Detail> {
     destination_description.text = widget.ListData['destination_description'];
     destination_operational_hour.text =
         widget.ListData['destination_operational_hour'];
+    destination_address.text = widget.ListData['destination_address'];
     destination_image_1.text = widget.ListData['destination_image_1'];
     destination_image_2.text = widget.ListData['destination_image_2'];
     destination_image_3.text = widget.ListData['destination_image_3'];
@@ -114,7 +117,7 @@ class _DetailState extends State<Detail> {
                         color: const Color(0xffffffff)),
                   ),
                   Text(
-                    "Jl. Engku Putri No.1, Belian, Kec. Batam Kota, Kota Batam, Kepulauan Riau 29461",
+                    destination_address.text,
                     style: GoogleFonts.inter(
                         fontSize: 7,
                         fontWeight: FontWeight.w500,
@@ -154,22 +157,12 @@ class _DetailState extends State<Detail> {
                         size: 15,
                         color: Colors.white,
                       )),
-                  Text("Open",
+                  Text("Open " + destination_operational_hour.text,
                       style: GoogleFonts.inter(
                           color: Colors.white,
                           fontSize: 10,
                           fontWeight: FontWeight.w600))
                 ],
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(90, 0, 0, 0),
-                child: Text(
-                  "Closed at 22.00 P.M",
-                  style: GoogleFonts.inter(
-                      color: Colors.white,
-                      fontSize: 8,
-                      fontWeight: FontWeight.w400),
-                ),
               ),
               const SizedBox(
                 height: 10,
