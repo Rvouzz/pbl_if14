@@ -134,7 +134,9 @@ class _ExplorePageState extends State<ExplorePage> {
                                   margin:
                                       const EdgeInsets.fromLTRB(5, 0, 0, 2.25),
                                   constraints:
-                                      const BoxConstraints(maxWidth: 97),
+                                      const BoxConstraints(maxWidth: 97,
+                                      minHeight: 30,
+                                      ),
                                   child: Text(
                                     _listdata[index]['category_name'],
                                     style: const TextStyle(
@@ -162,8 +164,11 @@ class _ExplorePageState extends State<ExplorePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Explore2()),
+                                          builder: (context) => Explore2(
+                                            categoryId: _listdata[index]
+                                                ['id_category'],
+                                          ),
+                                        ),
                                       );
                                     },
                                     child: const Text("View"),

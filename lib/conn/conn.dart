@@ -1,4 +1,4 @@
-var koneksi = '10.170.4.108';
+var koneksi = '192.168.117.1';
 
 var ip_read_place = 'http://$koneksi/koneksi_flutter/read_place.php';
 var ip_read_category = 'http://$koneksi/koneksi_flutter/read_category.php';

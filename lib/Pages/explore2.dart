@@ -7,7 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:pbl_if14/conn/conn.dart' as conn;
 
 class Explore2 extends StatefulWidget {
-  const Explore2({super.key});
+  Explore2({required this.categoryId});
+  String categoryId;
 
   @override
   State<Explore2> createState() => _Explore2State();
@@ -16,10 +17,13 @@ class Explore2 extends StatefulWidget {
 class _Explore2State extends State<Explore2> {
   List _listdata = [];
   bool _isloading = true;
-  String koneksi = conn.ip_read_place;
+  String koneksi = conn.koneksi;
   Future _getdata() async {
     try {
-      final response = await http.get(Uri.parse(koneksi));
+      int categoryIdInt = int.tryParse(widget.categoryId) ?? 0;
+
+      final response = await http.get(Uri.parse(
+          'http://$koneksi/koneksi_flutter/read_destinations.php?id_category=$categoryIdInt'));
       if (response.statusCode == 200) {
         print(response.body);
         final data = jsonDecode(response.body);
@@ -101,8 +105,8 @@ class _Explore2State extends State<Explore2> {
                                   margin: const EdgeInsets.fromLTRB(1, 5, 0, 0),
                                   child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              const Color.fromARGB(255, 100, 171, 69),
+                                          backgroundColor: const Color.fromARGB(
+                                              255, 100, 171, 69),
                                           minimumSize: const Size(47, 18),
                                           shape: const RoundedRectangleBorder(
                                               borderRadius: BorderRadius.all(
