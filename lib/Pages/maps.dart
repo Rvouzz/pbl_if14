@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
 class Maps extends StatefulWidget {
   const Maps({super.key});
 
@@ -31,14 +30,14 @@ class _MapsState extends State<Maps> {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return Scaffold(
       body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          mapType: MapType.hybrid,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 17.0,
-          ),
-          markers: {_marker},
+        onMapCreated: _onMapCreated,
+        mapType: MapType.hybrid,
+        initialCameraPosition: CameraPosition(
+          target: _center,
+          zoom: 17.0,
         ),
+        markers: {_marker},
+      ),
     );
   }
 }
