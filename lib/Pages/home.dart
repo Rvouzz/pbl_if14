@@ -330,8 +330,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
               width: 1,
             ),
             TextButton(
-              onPressed: () {
-                // Tambahkan kode aksi button di sini
+              onPressed: () {  // Tambahkan kode aksi button di sini
               },
               style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 100, 171, 69),

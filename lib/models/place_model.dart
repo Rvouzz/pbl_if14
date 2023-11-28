@@ -6,7 +6,7 @@ class PlaceModel {
   PlaceModel({
     required this.name,
     required this.image,
-    this.rating = 3.5,
+    this.rating = 5,
   });
 }
 

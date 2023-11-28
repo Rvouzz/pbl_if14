@@ -19,13 +19,12 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(41.89034591813256, 12.49225236311074);
-  final Marker _marker = const Marker(
+  static const LatLng _center = LatLng(41.89034591813256, 12.49225236311074);
+  static const Marker _marker = Marker(
     markerId: MarkerId('1'),
     position: LatLng(41.89034591813256, 12.49225236311074),
     infoWindow: InfoWindow(
       title: 'Marker Title',
-      snippet: 'Marker Description',
     ),
   );
 
@@ -96,7 +95,13 @@ class _DetailState extends State<Detail> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: [_gambarDetail(), _judul(), _deskripsi(), _maps()],
+          children: [
+            _gambarDetail(),
+            _judul(),
+            _deskripsi(),
+            _maps(),
+            _descriptionMaps()
+          ],
         ),
       )),
     );
@@ -223,7 +228,7 @@ class _DetailState extends State<Detail> {
 
   Container _deskripsi() {
     return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(218, 100, 171, 69),
       padding: const EdgeInsets.fromLTRB(50, 12, 50, 12),
       child: Center(
           child: Column(
@@ -233,7 +238,7 @@ class _DetailState extends State<Detail> {
             style: GoogleFonts.inter(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: const Color(0xFF614BC3)),
+                color: const Color.fromARGB(255, 255, 255, 255)),
           ),
           const SizedBox(
             height: 10,
@@ -244,7 +249,7 @@ class _DetailState extends State<Detail> {
             style: GoogleFonts.inter(
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
-                color: const Color.fromARGB(255, 0, 0, 0)),
+                color: const Color.fromARGB(255, 255, 255, 255)),
           ),
           const SizedBox(
             height: 30,
@@ -256,9 +261,9 @@ class _DetailState extends State<Detail> {
 
   SizedBox _maps() {
     return SizedBox(
-      height: 300,
+      height: 250,
       child: GestureDetector(
-        onLongPress: () {
+        onDoubleTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const Maps()),
@@ -267,12 +272,57 @@ class _DetailState extends State<Detail> {
         child: GoogleMap(
           onMapCreated: _onMapCreated,
           mapType: MapType.normal,
-          initialCameraPosition: CameraPosition(
+          zoomControlsEnabled: false,
+          zoomGesturesEnabled: false,
+          compassEnabled: false,
+          mapToolbarEnabled: false,
+          tiltGesturesEnabled: false,
+          rotateGesturesEnabled: false,
+          scrollGesturesEnabled: false,
+          myLocationButtonEnabled: false,
+          myLocationEnabled: false,
+          indoorViewEnabled: false,
+          liteModeEnabled: false,
+          trafficEnabled: false,
+          initialCameraPosition: const CameraPosition(
             target: _center,
-            zoom: 3.0,
+            zoom: 10.0,
           ),
           markers: {_marker},
         ),
+      ),
+    );
+  }
+
+  Container _descriptionMaps() {
+    return Container(
+      color: const Color.fromARGB(255, 100, 171, 69),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+            child: Column(
+              children: [
+                Text(
+                  "Map Showing location of ${destination_name.text}",
+                  style: GoogleFonts.inter(fontSize: 12, color: Colors.white),
+                ),
+                Text(
+                  "('Double tap to view fullscreen map')",
+                  style: GoogleFonts.inter(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 100,
+          )
+        ],
       ),
     );
   }

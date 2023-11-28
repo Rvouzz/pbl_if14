@@ -17,7 +17,6 @@ class _MapsState extends State<Maps> {
     position: LatLng(41.89034591813256, 12.49225236311074),
     infoWindow: InfoWindow(
       title: 'Marker Title',
-      snippet: 'Marker Description',
     ),
   );
 
