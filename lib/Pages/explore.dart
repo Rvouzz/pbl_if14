@@ -1,6 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-import 'dart:convert';
+// ignore_for_file: avoid_print
 
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,10 +46,15 @@ class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Find Destination", style: TextStyle(fontSize: 22)),
+        title: const Text(
+          "Find Destination",
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.w700),
+        ),
         backgroundColor: const Color.fromARGB(255, 100, 171, 69),
       ),
       body: _isloading
@@ -60,10 +65,10 @@ class _ExplorePageState extends State<ExplorePage> {
               child: Container(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 1),
                 width: double.infinity,
-                decoration: BoxDecoration(color: const Color(0xffffffff)),
+                decoration: const BoxDecoration(color: Color(0xffffffff)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
+                  children: [
                     Container(
                       padding: const EdgeInsets.fromLTRB(17, 12, 17, 16),
                       width: double.infinity,
@@ -72,18 +77,17 @@ class _ExplorePageState extends State<ExplorePage> {
                           color: const Color(0xfff3f1f1)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+                        children: [
                           Container(
                             margin: const EdgeInsets.fromLTRB(0, 0, 107, 6),
                             width: double.infinity,
                             child: Row(
-                              children: <Widget>[
+                              children: [
                                 IconButton(
                                   onPressed: () {},
                                   icon: const Icon(
                                     FeatherIcons.compass,
-                                    color:
-                                        const Color.fromARGB(255, 100, 171, 69),
+                                    color: Color.fromARGB(255, 100, 171, 69),
                                   ),
                                 ),
                                 Text(
@@ -106,7 +110,7 @@ class _ExplorePageState extends State<ExplorePage> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                                color: const Color.fromARGB(255, 100, 171, 69),
+                                color: Color.fromARGB(255, 100, 171, 69),
                               ),
                             ),
                           )
@@ -129,14 +133,14 @@ class _ExplorePageState extends State<ExplorePage> {
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
+                              children: [
                                 Container(
                                   margin:
                                       const EdgeInsets.fromLTRB(5, 0, 0, 2.25),
-                                  constraints:
-                                      const BoxConstraints(maxWidth: 97,
-                                      minHeight: 30,
-                                      ),
+                                  constraints: const BoxConstraints(
+                                    maxWidth: 97,
+                                    minHeight: 30,
+                                  ),
                                   child: Text(
                                     _listdata[index]['category_name'],
                                     style: const TextStyle(
@@ -171,7 +175,12 @@ class _ExplorePageState extends State<ExplorePage> {
                                         ),
                                       );
                                     },
-                                    child: const Text("View"),
+                                    child: const Text(
+                                      "View",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700),
+                                    ),
                                   ),
                                 )
                               ],

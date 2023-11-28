@@ -7,12 +7,14 @@
 // ignore_for_file: type=lint
 
 import 'package:flutter_native_splash/flutter_native_splash_web.dart';
+import 'package:google_maps_flutter_web/google_maps_flutter_web.dart';
 import 'package:network_info_plus/src/network_info_plus_web.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void registerPlugins([final Registrar? pluginRegistrar]) {
   final Registrar registrar = pluginRegistrar ?? webPluginRegistrar;
   FlutterNativeSplashWeb.registerWith(registrar);
+  GoogleMapsPlugin.registerWith(registrar);
   NetworkInfoPlusWebPlugin.registerWith(registrar);
   registrar.registerMessageHandler();
 }

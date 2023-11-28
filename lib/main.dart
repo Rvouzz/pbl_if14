@@ -27,9 +27,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.light,
       title: 'Guide Me : Aplikasi Tour Guide',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -48,6 +49,7 @@ class _MyAppState extends State<MyApp> {
   var selectedMenu = 0;
 
   BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         selectedItemColor: const Color.fromARGB(255, 100, 171, 69),
         type: BottomNavigationBarType.fixed,
         items: menus
@@ -62,6 +64,6 @@ class _MyAppState extends State<MyApp> {
         },
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        unselectedItemColor: const Color.fromARGB(255, 115, 110, 110),
+        unselectedItemColor: const Color.fromARGB(255, 108, 108, 108),
       );
 }

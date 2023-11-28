@@ -1,5 +1,6 @@
-import 'dart:convert';
+// ignore_for_file: avoid_print
 
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pbl_if14/Pages/detail.dart';
@@ -7,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:pbl_if14/conn/conn.dart' as conn;
 
 class Explore2 extends StatefulWidget {
-  Explore2({required this.categoryId});
+  Explore2({super.key, required this.categoryId});
   String categoryId;
 
   @override
@@ -55,7 +56,11 @@ class _Explore2State extends State<Explore2> {
                 Navigator.pop(context);
               },
               icon: const Icon(Icons.arrow_back_rounded)),
-          title: const Text("Find Destination", style: TextStyle(fontSize: 22)),
+          title: const Text("Find Destination",
+              style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700)),
           backgroundColor: const Color.fromARGB(255, 100, 171, 69),
         ),
         body: _isloading
@@ -72,7 +77,7 @@ class _Explore2State extends State<Explore2> {
                       decoration: const BoxDecoration(color: Color(0xffffffff)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
+                        children: [
                           Container(
                             padding: const EdgeInsets.fromLTRB(19, 48, 19, 13),
                             width: double.infinity,
@@ -83,7 +88,7 @@ class _Explore2State extends State<Explore2> {
                             )),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
+                              children: [
                                 Container(
                                   margin:
                                       const EdgeInsets.fromLTRB(0, 0, 0, 2.25),
@@ -104,51 +109,57 @@ class _Explore2State extends State<Explore2> {
                                 Container(
                                   margin: const EdgeInsets.fromLTRB(1, 5, 0, 0),
                                   child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color.fromARGB(
-                                              255, 100, 171, 69),
-                                          minimumSize: const Size(47, 18),
-                                          shape: const RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)))),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Detail(
-                                                    ListData: {
-                                                      "id_destination":
-                                                          _listdata[index][
-                                                              'id_destination'],
-                                                      "destination_name":
-                                                          _listdata[index][
-                                                              'destination_name'],
-                                                      "destination_description":
-                                                          _listdata[index][
-                                                              'destination_description'],
-                                                      "destination_operational_hour":
-                                                          _listdata[index][
-                                                              'destination_operational_hour'],
-                                                      "destination_address":
-                                                          _listdata[index][
-                                                              'destination_address'],
-                                                      "destination_image_1":
-                                                          _listdata[index][
-                                                              'destination_image_1'],
-                                                      "destination_image_2":
-                                                          _listdata[index][
-                                                              'destination_image_2'],
-                                                      "destination_image_3":
-                                                          _listdata[index][
-                                                              'destination_image_3'],
-                                                      "category_name":
-                                                          _listdata[index]
-                                                              ['category_name'],
-                                                    },
-                                                  )),
-                                        );
-                                      },
-                                      child: const Text("View")),
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color.fromARGB(
+                                            255, 100, 171, 69),
+                                        minimumSize: const Size(47, 18),
+                                        shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10)))),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Detail(
+                                                  ListData: {
+                                                    "id_destination":
+                                                        _listdata[index]
+                                                            ['id_destination'],
+                                                    "destination_name":
+                                                        _listdata[index][
+                                                            'destination_name'],
+                                                    "destination_description":
+                                                        _listdata[index][
+                                                            'destination_description'],
+                                                    "destination_operational_hour":
+                                                        _listdata[index][
+                                                            'destination_operational_hour'],
+                                                    "destination_address":
+                                                        _listdata[index][
+                                                            'destination_address'],
+                                                    "destination_image_1":
+                                                        _listdata[index][
+                                                            'destination_image_1'],
+                                                    "destination_image_2":
+                                                        _listdata[index][
+                                                            'destination_image_2'],
+                                                    "destination_image_3":
+                                                        _listdata[index][
+                                                            'destination_image_3'],
+                                                    "category_name":
+                                                        _listdata[index]
+                                                            ['category_name'],
+                                                  },
+                                                )),
+                                      );
+                                    },
+                                    child: const Text(
+                                      "View",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
                                 )
                               ],
                             ),

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -8,14 +10,30 @@ import 'package:pbl_if14/conn/conn.dart' as conn;
 
 class Detail extends StatefulWidget {
   final Map ListData;
-  Detail({Key? key, required this.ListData}) : super(key: key);
+  const Detail({Key? key, required this.ListData}) : super(key: key);
 
   @override
   State<Detail> createState() => _DetailState();
 }
 
 class _DetailState extends State<Detail> {
+  late GoogleMapController mapController;
+  final LatLng _center = const LatLng(41.89035444470598, 12.492154382454148);
+  final Marker _marker = const Marker(
+    markerId: MarkerId('1'),
+    position: LatLng(41.89035444470598, 12.492154382454148),
+    infoWindow: InfoWindow(
+      title: 'Marker Title',
+      snippet: 'Marker Description',
+    ),
+  );
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   double rating = 4.5;
+
   String koneksi = conn.ip_read_place;
   final formKey = GlobalKey<FormState>();
   TextEditingController id_destination = TextEditingController();
@@ -77,7 +95,7 @@ class _DetailState extends State<Detail> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: [_gambarDetail(), _judul(), _deskripsi()],
+          children: [_gambarDetail(), _judul(), _deskripsi(), _maps()],
         ),
       )),
     );
@@ -157,7 +175,7 @@ class _DetailState extends State<Detail> {
                         size: 15,
                         color: Colors.white,
                       )),
-                  Text("Open " + destination_operational_hour.text,
+                  Text("Open ${destination_operational_hour.text}",
                       style: GoogleFonts.inter(
                           color: Colors.white,
                           fontSize: 10,
@@ -205,7 +223,6 @@ class _DetailState extends State<Detail> {
   Container _deskripsi() {
     return Container(
       color: const Color.fromARGB(255, 255, 255, 255),
-      height: 300,
       padding: const EdgeInsets.fromLTRB(50, 12, 50, 12),
       child: Center(
           child: Column(
@@ -227,9 +244,27 @@ class _DetailState extends State<Detail> {
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
                 color: const Color.fromARGB(255, 0, 0, 0)),
+          ),
+          const SizedBox(
+            height: 30,
           )
         ],
       )),
+    );
+  }
+
+  SizedBox _maps() {
+    return SizedBox(
+      height: 300,
+      child: GoogleMap(
+        onMapCreated: _onMapCreated,
+        mapType: MapType.hybrid,
+        initialCameraPosition: CameraPosition(
+          target: _center,
+          zoom: 17.0,
+        ),
+        markers: {_marker},
+      ),
     );
   }
 }

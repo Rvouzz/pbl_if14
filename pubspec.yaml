@@ -19,6 +19,8 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   http: ^1.1.0
   network_info_plus: ^4.1.0
+  google_maps_flutter: ^2.5.0
+  google_maps_flutter_web: ^0.5.4+2
 
 dev_dependencies:
   flutter_test:
