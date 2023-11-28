@@ -258,7 +258,7 @@ class _DetailState extends State<Detail> {
     return SizedBox(
       height: 300,
       child: GestureDetector(
-        onTap: () {
+        onLongPress: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const Maps()),
