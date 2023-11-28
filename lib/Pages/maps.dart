@@ -12,10 +12,10 @@ class Maps extends StatefulWidget {
 
 class _MapsState extends State<Maps> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(1.1222270656978806, 104.11827319985684);
+  final LatLng _center = const LatLng(41.89034591813256, 12.49225236311074);
   final Marker _marker = const Marker(
     markerId: MarkerId('1'),
-    position: LatLng(1.1222270656978806, 104.11827319985684),
+    position: LatLng(41.89034591813256, 12.49225236311074),
     infoWindow: InfoWindow(
       title: 'Marker Title',
       snippet: 'Marker Description',

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:pbl_if14/conn/conn.dart' as conn;
+import 'package:pbl_if14/Pages/maps.dart';
 
 class Detail extends StatefulWidget {
   final Map ListData;
@@ -18,10 +19,10 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(41.89035444470598, 12.492154382454148);
+  final LatLng _center = const LatLng(41.89034591813256, 12.49225236311074);
   final Marker _marker = const Marker(
     markerId: MarkerId('1'),
-    position: LatLng(41.89035444470598, 12.492154382454148),
+    position: LatLng(41.89034591813256, 12.49225236311074),
     infoWindow: InfoWindow(
       title: 'Marker Title',
       snippet: 'Marker Description',
@@ -256,14 +257,22 @@ class _DetailState extends State<Detail> {
   SizedBox _maps() {
     return SizedBox(
       height: 300,
-      child: GoogleMap(
-        onMapCreated: _onMapCreated,
-        mapType: MapType.hybrid,
-        initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 17.0,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Maps()),
+          );
+        },
+        child: GoogleMap(
+          onMapCreated: _onMapCreated,
+          mapType: MapType.normal,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 3.0,
+          ),
+          markers: {_marker},
         ),
-        markers: {_marker},
       ),
     );
   }
