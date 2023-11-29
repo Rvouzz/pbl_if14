@@ -18,22 +18,6 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
-  late GoogleMapController mapController;
-  static const LatLng _center = LatLng(41.89034591813256, 12.49225236311074);
-  static const Marker _marker = Marker(
-    markerId: MarkerId('1'),
-    position: LatLng(41.89034591813256, 12.49225236311074),
-    infoWindow: InfoWindow(
-      title: 'Marker Title',
-    ),
-  );
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
-
-  double rating = 4.5;
-
   String koneksi = conn.ip_read_place;
   final formKey = GlobalKey<FormState>();
   TextEditingController id_destination = TextEditingController();
@@ -44,30 +28,26 @@ class _DetailState extends State<Detail> {
   TextEditingController destination_image_1 = TextEditingController();
   TextEditingController destination_image_2 = TextEditingController();
   TextEditingController destination_image_3 = TextEditingController();
+  TextEditingController latitude = TextEditingController();
+  TextEditingController longitude = TextEditingController();
   TextEditingController category_name = TextEditingController();
-  TextEditingController controller = TextEditingController();
 
-  Future _update() async {
-    final response = await http.post(Uri.parse(koneksi), body: {
-      "id_destination": id_destination.text,
-      "destination_name": destination_name.text,
-      "destination_description": destination_description.text,
-      "destination_operational_hour": destination_operational_hour.text,
-      "destination_address": destination_address.text,
-      "destination_image_1": destination_image_1.text,
-      "destination_image_2": destination_image_2.text,
-      "destination_image_3": destination_image_3.text,
-      "category_name": category_name.text,
-    });
-    if (response.statusCode == 200) {
-      return true;
-    }
-    return false;
-  }
+  late GoogleMapController mapController;
+  LatLng _center = LatLng(41.89034591813256, 12.49225236311074);
+  Marker _marker = Marker(
+    markerId: MarkerId('1'),
+    position: LatLng(41.89034591813256, 12.49225236311074),
+    infoWindow: InfoWindow(
+      title: 'Marker Title',
+    ),
+  );
+
+  double rating = 4.5;
 
   @override
-  Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  void initState() {
+    super.initState();
+    // Menginisialisasi data dari widget.ListData
     id_destination.text = widget.ListData['id_destination'];
     destination_name.text = widget.ListData['destination_name'];
     destination_description.text = widget.ListData['destination_description'];
@@ -77,7 +57,63 @@ class _DetailState extends State<Detail> {
     destination_image_1.text = widget.ListData['destination_image_1'];
     destination_image_2.text = widget.ListData['destination_image_2'];
     destination_image_3.text = widget.ListData['destination_image_3'];
-    category_name.text = widget.ListData['category_name'];
+    latitude.text = widget.ListData['latitude'];
+    longitude.text = widget.ListData['longitude'];
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+
+    // Perbarui peta saat GoogleMapController diinisialisasi
+    _update();
+  }
+
+  Future _update() async {
+    double latitudeDB = double.parse(latitude.text);
+    double longitudeDB = double.parse(longitude.text);
+
+    final newMarker = Marker(
+      markerId: MarkerId('1'),
+      position: LatLng(latitudeDB, longitudeDB),
+      infoWindow: InfoWindow(
+        title: ' ${destination_name.text}',
+      ),
+    );
+
+    setState(() {
+      _marker = newMarker;
+      _center = LatLng(latitudeDB, longitudeDB);
+    });
+
+    // Perbarui peta ke posisi baru
+    mapController.moveCamera(CameraUpdate.newLatLng(_center));
+
+    // Kirim data ke server atau database
+    final response = await http.post(Uri.parse(koneksi), body: {
+      "id_destination": id_destination.text,
+      "destination_name": destination_name.text,
+      "destination_description": destination_description.text,
+      "destination_operational_hour": destination_operational_hour.text,
+      "destination_address": destination_address.text,
+      "destination_image_1": destination_image_1.text,
+      "destination_image_2": destination_image_2.text,
+      "destination_image_3": destination_image_3.text,
+      "latitude": latitudeDB.toString(),
+      "longitude": longitudeDB.toString(),
+    });
+
+    if (response.statusCode == 200) {
+      // Proses berhasil
+      print("Data berhasil diperbarui");
+    } else {
+      // Proses gagal
+      print("Gagal memperbarui data");
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 100, 171, 69),
@@ -93,17 +129,18 @@ class _DetailState extends State<Detail> {
         ),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _gambarDetail(),
-            _judul(),
-            _deskripsi(),
-            _maps(),
-            _descriptionMaps()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _gambarDetail(),
+              _judul(),
+              _deskripsi(),
+              _maps(),
+              _descriptionMaps(),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 
@@ -112,10 +149,11 @@ class _DetailState extends State<Detail> {
       padding: const EdgeInsets.fromLTRB(0, 250, 0, 0),
       width: double.maxFinite,
       decoration: const BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage('assets/images/Detail.jpg'),
-        fit: BoxFit.cover,
-      )),
+        image: DecorationImage(
+          image: AssetImage('assets/images/Detail.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 
@@ -136,16 +174,18 @@ class _DetailState extends State<Detail> {
                   Text(
                     destination_name.text,
                     style: GoogleFonts.inter(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xffffffff)),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xffffffff),
+                    ),
                   ),
                   Text(
                     destination_address.text,
                     style: GoogleFonts.inter(
-                        fontSize: 7,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xffffffff)),
+                      fontSize: 7,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xffffffff),
+                    ),
                   ),
                   const SizedBox(
                     height: 5,
@@ -175,17 +215,21 @@ class _DetailState extends State<Detail> {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        FeatherIcons.clock,
-                        size: 15,
-                        color: Colors.white,
-                      )),
-                  Text("Open ${destination_operational_hour.text}",
-                      style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w600))
+                    onPressed: () {},
+                    icon: const Icon(
+                      FeatherIcons.clock,
+                      size: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    "Open ${destination_operational_hour.text}",
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -194,31 +238,34 @@ class _DetailState extends State<Detail> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
                 child: TextButton.icon(
-                    onPressed: () {
-                      // tambahkan kode aksi disini
-                    },
-                    style: TextButton.styleFrom(
-                        fixedSize: const Size(100, 0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
-                          side: const BorderSide(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                        )),
-                    icon: const Icon(
-                      FeatherIcons.edit2,
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      size: 12,
+                  onPressed: () {
+                    // tambahkan kode aksi disini
+                  },
+                  style: TextButton.styleFrom(
+                    fixedSize: const Size(100, 0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                      side: const BorderSide(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
                     ),
-                    label: const Text(
-                      "Rate and Review",
-                      style: TextStyle(
-                          fontFamily: "Inter",
-                          fontSize: 8,
-                          fontWeight: FontWeight.w500,
-                          color: Color.fromARGB(255, 255, 255, 255)),
-                    )),
-              )
+                  ),
+                  icon: const Icon(
+                    FeatherIcons.edit2,
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    size: 12,
+                  ),
+                  label: const Text(
+                    "Rate and Review",
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 8,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ],
@@ -231,31 +278,34 @@ class _DetailState extends State<Detail> {
       color: const Color.fromARGB(218, 100, 171, 69),
       padding: const EdgeInsets.fromLTRB(50, 12, 50, 12),
       child: Center(
-          child: Column(
-        children: [
-          Text(
-            "History",
-            style: GoogleFonts.inter(
+        child: Column(
+          children: [
+            Text(
+              "History",
+              style: GoogleFonts.inter(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: const Color.fromARGB(255, 255, 255, 255)),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            textAlign: TextAlign.justify,
-            destination_description.text,
-            style: GoogleFonts.inter(
+                color: const Color.fromARGB(255, 255, 255, 255),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              textAlign: TextAlign.justify,
+              destination_description.text,
+              style: GoogleFonts.inter(
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
-                color: const Color.fromARGB(255, 255, 255, 255)),
-          ),
-          const SizedBox(
-            height: 30,
-          )
-        ],
-      )),
+                color: const Color.fromARGB(255, 255, 255, 255),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -266,7 +316,13 @@ class _DetailState extends State<Detail> {
         onDoubleTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const Maps()),
+            MaterialPageRoute(
+              builder: (context) => Maps(
+                latitude: double.parse(latitude.text),
+                longitude: double.parse(longitude.text),
+                destinationName: destination_name.text,
+              ),
+            ),
           );
         },
         child: GoogleMap(
@@ -284,9 +340,9 @@ class _DetailState extends State<Detail> {
           indoorViewEnabled: false,
           liteModeEnabled: false,
           trafficEnabled: false,
-          initialCameraPosition: const CameraPosition(
+          initialCameraPosition: CameraPosition(
             target: _center,
-            zoom: 10.0,
+            zoom: 13.0,
           ),
           markers: {_marker},
         ),
@@ -312,16 +368,17 @@ class _DetailState extends State<Detail> {
                 Text(
                   "('Double tap to view fullscreen map')",
                   style: GoogleFonts.inter(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ],
             ),
           ),
           const SizedBox(
             height: 100,
-          )
+          ),
         ],
       ),
     );

@@ -3,22 +3,35 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Maps extends StatefulWidget {
-  const Maps({super.key});
+  final double latitude;
+  final double longitude;
+  final String destinationName;
+
+  const Maps({
+    required this.latitude,
+    required this.longitude,
+    required this.destinationName,
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<Maps> createState() => _MapsState();
+  State<Maps> createState() => _MapsState(latitude, longitude, destinationName);
 }
 
 class _MapsState extends State<Maps> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(41.89034591813256, 12.49225236311074);
-  final Marker _marker = const Marker(
-    markerId: MarkerId('1'),
-    position: LatLng(41.89034591813256, 12.49225236311074),
-    infoWindow: InfoWindow(
-      title: 'Marker Title',
-    ),
-  );
+  final LatLng _center;
+  final Marker _marker;
+
+  _MapsState(double latitude, double longitude, String destinationName)
+      : _center = LatLng(latitude, longitude),
+        _marker = Marker(
+          markerId: MarkerId('1'),
+          position: LatLng(latitude, longitude),
+          infoWindow: InfoWindow(
+            title: destinationName,
+          ),
+        );
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;

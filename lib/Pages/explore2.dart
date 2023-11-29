@@ -7,6 +7,7 @@ import 'package:pbl_if14/Pages/detail.dart';
 import 'package:http/http.dart' as http;
 import 'package:pbl_if14/conn/conn.dart' as conn;
 
+// ignore: must_be_immutable
 class Explore2 extends StatefulWidget {
   Explore2({super.key, required this.categoryId});
   String categoryId;
@@ -146,9 +147,13 @@ class _Explore2State extends State<Explore2> {
                                                     "destination_image_3":
                                                         _listdata[index][
                                                             'destination_image_3'],
-                                                    "category_name":
-                                                        _listdata[index]
-                                                            ['category_name'],
+                                                    "latitude":
+                                                        _listdata[index][
+                                                            'latitude'],
+                                                    "longitude":
+                                                        _listdata[index][
+                                                            'longitude'],
+
                                                   },
                                                 )),
                                       );
