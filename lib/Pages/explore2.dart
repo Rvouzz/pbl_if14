@@ -82,9 +82,10 @@ class _Explore2State extends State<Explore2> {
                           Container(
                             padding: const EdgeInsets.fromLTRB(19, 48, 19, 13),
                             width: double.infinity,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                                 image: DecorationImage(
-                              image: AssetImage("assets/images/vio-vio.jpg"),
+                              image: MemoryImage(
+                                  base64Decode(_listdata[index]['destination_image_1'])),
                               fit: BoxFit.cover,
                             )),
                             child: Column(
@@ -147,13 +148,11 @@ class _Explore2State extends State<Explore2> {
                                                     "destination_image_3":
                                                         _listdata[index][
                                                             'destination_image_3'],
-                                                    "latitude":
-                                                        _listdata[index][
-                                                            'latitude'],
+                                                    "latitude": _listdata[index]
+                                                        ['latitude'],
                                                     "longitude":
-                                                        _listdata[index][
-                                                            'longitude'],
-
+                                                        _listdata[index]
+                                                            ['longitude'],
                                                   },
                                                 )),
                                       );

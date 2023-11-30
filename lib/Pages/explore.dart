@@ -126,8 +126,8 @@ class _ExplorePageState extends State<ExplorePage> {
                             width: double.infinity,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage(
-                                    _listdata[index]['category_image']),
+                                image: MemoryImage(base64Decode(
+                                    _listdata[index]['category_image'])),
                                 fit: BoxFit.cover,
                               ),
                             ),

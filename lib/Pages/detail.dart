@@ -1,4 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
+import 'dart:convert';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -148,9 +150,10 @@ class _DetailState extends State<Detail> {
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 250, 0, 0),
       width: double.maxFinite,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/Detail.jpg'),
+          image:
+              MemoryImage(base64Decode(widget.ListData['destination_image_3'])),
           fit: BoxFit.cover,
         ),
       ),
