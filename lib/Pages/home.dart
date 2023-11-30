@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 // import 'package:pbl_if14/Pages/detail.dart';
-import 'package:pbl_if14/models/iconic_place.dart';
-import 'package:pbl_if14/models/place_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pbl_if14/ui/login.dart';
 
@@ -145,14 +143,14 @@ ListView _topplaces() {
   return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemBuilder: (context, index) => place(places[index]),
+      itemBuilder: (context, index) => place(),
       separatorBuilder: (context, index) => const SizedBox(
             height: 1,
           ),
-      itemCount: places.length);
+      itemCount: 1);
 }
 
-Container place(PlaceModel placeModel) {
+Container place() {
   return Container(
     padding: const EdgeInsets.all(20),
     decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -166,7 +164,7 @@ Container place(PlaceModel placeModel) {
         Row(
           children: [
             Image.asset(
-              "assets/images/${placeModel.image}",
+              "assets/images/megamall.png",
               height: 68,
               width: 68,
             ),
@@ -180,8 +178,8 @@ Container place(PlaceModel placeModel) {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 1),
                     child: Text(
+                      "Mega Mall Batam Center",
                       textAlign: TextAlign.center,
-                      placeModel.name,
                       style: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -192,7 +190,7 @@ Container place(PlaceModel placeModel) {
                     height: 5,
                   ),
                   RatingBar.builder(
-                    initialRating: placeModel.rating,
+                    initialRating: 4,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
@@ -264,14 +262,14 @@ ListView _iconicplace() {
   return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemBuilder: (context, index) => iplace(iconicplaces[index]),
+      itemBuilder: (context, index) => iplace(),
       separatorBuilder: (context, index) => const SizedBox(
             height: 1,
           ),
-      itemCount: iconicplaces.length);
+      itemCount: 1);
 }
 
-Container iplace(IconicPlaceModel iconicPlaceModel) {
+Container iplace() {
   return Container(
     padding: const EdgeInsets.all(20),
     decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -285,7 +283,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
         Row(
           children: [
             Image.asset(
-              "assets/images/${iconicPlaceModel.image}",
+              "assets/images/jembatan1.jpeg",
               height: 68,
               width: 68,
             ),
@@ -299,8 +297,8 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 1),
                     child: Text(
+                      "Barelang Bridge",
                       textAlign: TextAlign.center,
-                      iconicPlaceModel.name,
                       style: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -311,7 +309,7 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
                     height: 5,
                   ),
                   RatingBar.builder(
-                    initialRating: iconicPlaceModel.rating,
+                    initialRating: 4.5,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
@@ -330,7 +328,8 @@ Container iplace(IconicPlaceModel iconicPlaceModel) {
               width: 1,
             ),
             TextButton(
-              onPressed: () {  // Tambahkan kode aksi button di sini
+              onPressed: () {
+                // Tambahkan kode aksi button di sini
               },
               style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 100, 171, 69),
