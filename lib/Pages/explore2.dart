@@ -175,3 +175,18 @@ class _Explore2State extends State<Explore2> {
                 })));
   }
 }
+
+
+class loginscreeng extends StatefulWidget {
+  const loginscreeng({super.key});
+
+  @override
+  State<loginscreeng> createState() => _loginscreengState();
+}
+
+class _loginscreengState extends State<loginscreeng> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
