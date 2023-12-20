@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pbl_if14/Pages/detail.dart';
 import 'package:http/http.dart' as http;
-import 'package:pbl_if14/conn/conn.dart' as conn;
 
 // ignore: must_be_immutable
 class Explore2 extends StatefulWidget {
@@ -19,13 +18,12 @@ class Explore2 extends StatefulWidget {
 class _Explore2State extends State<Explore2> {
   List _listdata = [];
   bool _isloading = true;
-  String koneksi = conn.koneksi;
   Future _getdata() async {
     try {
       int categoryIdInt = int.tryParse(widget.categoryId) ?? 0;
 
       final response = await http.get(Uri.parse(
-          'http://$koneksi/koneksi_flutter/read_destinations.php?id_category=$categoryIdInt'));
+          'https://exploreperjalanan.com/des/pblif14/koneksi_flutter/read_destinations.php?id_category=$categoryIdInt'));
       if (response.statusCode == 200) {
         print(response.body);
         final data = jsonDecode(response.body);
@@ -84,8 +82,8 @@ class _Explore2State extends State<Explore2> {
                             width: double.infinity,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                              image: MemoryImage(
-                                  base64Decode(_listdata[index]['destination_image_1'])),
+                              image: MemoryImage(base64Decode(
+                                  _listdata[index]['destination_image_1'])),
                               fit: BoxFit.cover,
                             )),
                             child: Column(
@@ -122,39 +120,38 @@ class _Explore2State extends State<Explore2> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Detail(
-                                                  ListData: {
-                                                    "id_destination":
-                                                        _listdata[index]
-                                                            ['id_destination'],
-                                                    "destination_name":
-                                                        _listdata[index][
-                                                            'destination_name'],
-                                                    "destination_description":
-                                                        _listdata[index][
-                                                            'destination_description'],
-                                                    "destination_operational_hour":
-                                                        _listdata[index][
-                                                            'destination_operational_hour'],
-                                                    "destination_address":
-                                                        _listdata[index][
-                                                            'destination_address'],
-                                                    "destination_image_1":
-                                                        _listdata[index][
-                                                            'destination_image_1'],
-                                                    "destination_image_2":
-                                                        _listdata[index][
-                                                            'destination_image_2'],
-                                                    "destination_image_3":
-                                                        _listdata[index][
-                                                            'destination_image_3'],
-                                                    "latitude": _listdata[index]
-                                                        ['latitude'],
-                                                    "longitude":
-                                                        _listdata[index]
-                                                            ['longitude'],
-                                                  },
-                                                )),
+                                          builder: (context) => Detail(
+                                            ListData: {
+                                              "id_destination": _listdata[index]
+                                                  ['id_destination'],
+                                              "destination_name":
+                                                  _listdata[index]
+                                                      ['destination_name'],
+                                              "destination_description":
+                                                  _listdata[index][
+                                                      'destination_description'],
+                                              "destination_operational_hour":
+                                                  _listdata[index][
+                                                      'destination_operational_hour'],
+                                              "destination_address":
+                                                  _listdata[index]
+                                                      ['destination_address'],
+                                              "destination_image_1":
+                                                  _listdata[index]
+                                                      ['destination_image_1'],
+                                              "destination_image_2":
+                                                  _listdata[index]
+                                                      ['destination_image_2'],
+                                              "destination_image_3":
+                                                  _listdata[index]
+                                                      ['destination_image_3'],
+                                              "latitude": _listdata[index]
+                                                  ['latitude'],
+                                              "longitude": _listdata[index]
+                                                  ['longitude'],
+                                            },
+                                          ),
+                                        ),
                                       );
                                     },
                                     child: const Text(
@@ -173,20 +170,5 @@ class _Explore2State extends State<Explore2> {
                     ),
                   );
                 })));
-  }
-}
-
-
-class loginscreeng extends StatefulWidget {
-  const loginscreeng({super.key});
-
-  @override
-  State<loginscreeng> createState() => _loginscreengState();
-}
-
-class _loginscreengState extends State<loginscreeng> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
