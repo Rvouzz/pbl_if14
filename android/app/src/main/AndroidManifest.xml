@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pbl_if14">
    <application
-        android:label="pbl_if14"
+        android:label="Guide ME:Aplikasi Tour Guide"
         android:name="${applicationName}"
         android:icon="@drawable/splash"> <!-- Menggunakan ikon dari direktori 'mipmap' -->
         <!-- TODO: Add your Google Maps API key here -->
