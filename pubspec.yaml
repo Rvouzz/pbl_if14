@@ -31,17 +31,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/splash1.png
     - assets\images\bg1.png
-    - assets\images\megamall.png
-    - assets\images\jembatan1.jpeg
-    - assets\images\beach.jpg
-    - assets\images\shopping.jpg
-    - assets\images\amusement_park.jpg
-    - assets\images\wtb.jpg
-    - assets\images\vio-vio.jpg
-    - assets\images\location.png
-    - assets\images\Detail.jpg
+    - assets\images\rio2.jpg
+    - assets\images\febri.jpg
+    - assets\images\raja1.jpg
+    - assets\images\azriqin.jpg
 
   fonts:
     - family: Montserrat

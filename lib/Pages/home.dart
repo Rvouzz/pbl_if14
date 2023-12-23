@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:pbl_if14/ui/login.dart';
 import 'package:pbl_if14/Pages/detail.dart';
 import 'package:http/http.dart' as http;
 import 'package:pbl_if14/conn/conn.dart' as conn;
@@ -62,21 +60,6 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
-            },
-            icon: const Icon(
-              FeatherIcons.logIn,
-              color: Colors.white,
-              size: 30,
-            ),
-          )
-        ],
       ),
       body: _isloading
           ? const Center(
@@ -87,13 +70,6 @@ class _HomeState extends State<Home> {
                 child: Column(
                   children: [
                     cardBesar(),
-                    Container(
-                      color: const Color.fromARGB(255, 100, 171, 69),
-                      height: 50,
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: _topplace(),
-                    ),
-                    _topplaces(),
                     Container(
                       color: const Color.fromARGB(255, 100, 171, 69),
                       height: 50,
@@ -142,133 +118,6 @@ class _HomeState extends State<Home> {
               color: Color(0xffffffff),
             ),
           )
-        ],
-      ),
-    );
-  }
-
-  Padding _topplace() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              FeatherIcons.award,
-              color: Colors.white,
-            ),
-          ),
-          Text(
-            'TOP PLACES',
-            style: GoogleFonts.inter(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  ListView _topplaces() {
-    return ListView.separated(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemBuilder: (context, index) => place(),
-      separatorBuilder: (context, index) => const SizedBox(
-        height: 1,
-      ),
-      itemCount: 1,
-    );
-  }
-
-  Container place() {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF000000).withOpacity(.25),
-            blurRadius: 4,
-            offset: const Offset(0, 4),
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Image.asset(
-                "assets/images/megamall.png",
-                height: 68,
-                width: 68,
-              ),
-              const SizedBox(
-                width: 1,
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 1),
-                      child: Text(
-                        "Mega Mall Batam Center",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF000000),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    RatingBar.builder(
-                      initialRating: 4,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemSize: 21.0,
-                      itemBuilder: (context, index) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {},
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                width: 1,
-              ),
-              TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 100, 171, 69),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  fixedSize: const Size(72, 23),
-                ),
-                child: Text(
-                  "View",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.inter(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              )
-            ],
-          ),
         ],
       ),
     );
@@ -352,19 +201,6 @@ class _HomeState extends State<Home> {
                     ),
                     const SizedBox(
                       height: 5,
-                    ),
-                    RatingBar.builder(
-                      initialRating: 4.5,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemSize: 21.0,
-                      itemBuilder: (context, index) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {},
                     ),
                   ],
                 ),

@@ -26,7 +26,7 @@ class _MapsState extends State<Maps> {
   _MapsState(double latitude, double longitude, String destinationName)
       : _center = LatLng(latitude, longitude),
         _marker = Marker(
-          markerId: MarkerId('1'),
+          markerId: const MarkerId('1'),
           position: LatLng(latitude, longitude),
           infoWindow: InfoWindow(
             title: destinationName,
